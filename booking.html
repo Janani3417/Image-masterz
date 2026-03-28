@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>MyStudio</h2>
+      <a href="index.html">Home</a>
+      <a href="booking.html">Booking</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="main">
+      <div class="form-container">
+        <h2>📸 Book Your Event</h2>
+
+        <form
+          onsubmit="
+            sendWhatsApp();
+            return false;
+          "
+        >
+          <div class="input-group">
+            <label>Name</label>
+            <input
+              type="text"
+              id="name"
+              required
+              placeholder="Enter your Name"
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Date</label>
+            <input type="date" id="date" required />
+          </div>
+
+          <div class="input-group">
+            <label>Event Type</label>
+            <input type="text" id="event" placeholder="Wedding / Birthday" />
+          </div>
+
+          <div class="input-group">
+            <label>Message</label>
+            <textarea id="message" placeholder="message"></textarea>
+          </div>
+
+          <button type="submit">🚀 Book Now</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

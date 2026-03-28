@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <h2>MyStudio</h2>
+      <a href="index.html">Home</a>
+      <a href="booking.html">Booking</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+      <!-- HERO -->
+      <div class="contact-hero">
+        <h1>Let’s Work Together 📸</h1>
+        <p>Book your events or reach us anytime</p>
+      </div>
+
+      <!-- CONTACT SECTION -->
+      <div class="contact-container">
+        <!-- LEFT -->
+        <div class="contact-left">
+          <h2>Contact Info</h2>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <p>+91 9876543210</p>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <p>mystudio@gmail.com</p>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>Chennai, India</p>
+          </div>
+
+          <div class="social">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="contact-right">
+          <h2>Send Message</h2>
+
+          <form
+            onsubmit="
+              sendContact();
+              return false;
+            "
+          >
+            <input type="text" id="cname" placeholder="Your Name" required />
+            <input type="email" id="cemail" placeholder="Your Email" required />
+            <textarea id="cmessage" placeholder="Your Message"></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class="map">
+        <iframe
+          src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        >
+        </iframe>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <p>© 2026 MyStudio | All Rights Reserved</p>
+      </footer>
+    </div>
+
+    <!-- FLOATING BUTTONS -->
+    <a href="tel:9876543210" class="call-btn"
+      ><i class="fa-solid fa-phone"></i
+    ></a>
+    <a href="https://wa.me/919876543210" class="whatsapp-btn"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+
+    <script src="script.js"></script>
+  </body>
+</html>
