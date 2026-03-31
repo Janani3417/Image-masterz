@@ -3,16 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <title>Packages</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+      /* ---------------- NAVBAR ---------------- */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 60px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(6px);
+      }
+
+      .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .nav-center {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-center a {
+        text-decoration: none;
+        color: #e2e8f0;
+        font-size: 18px;
+      }
+
+      .nav-center a:hover {
+        color: white;
+      }
+    </style>
+
+   <link rel="stylesheet" href="style.css">
+
+  
 </head>
 <body>
 
-<div class="sidebar">
+<!-- <div class="sidebar">
   <h2>MyStudio</h2>
   <a href="index.html">Home</a>
   <a href="packages.html">Packages</a>
-</div>
+</div> -->
+<!-- ---------- HEADER NAVBAR ---------- -->
+    <header class="navbar">
+      <div class="logo">MyStudio</div>
 
+      <nav class="nav-center">
+        <a href="index.html">Home</a>
+        <a href="Services.html">Services</a>
+        <a href="packages.html">Packages</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
 <div class="main">
   <h2 class="section-title">Packages</h2>
   <div class="packages">

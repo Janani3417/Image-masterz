@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Services</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial;
+      }
+
+      body {
+        background: #0f172a;
+        color: white;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 60px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+      }
+
+      .nav-center {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-center a {
+        text-decoration: none;
+        color: #e2e8f0;
+      }
+
+      /* MAIN */
+      .main {
+        padding-top: 120px;
+      }
+
+      /* GALLERY */
+      .gallery {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* CARD */
+      .gallery-item {
+        width: 260px;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 15px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      /* SERVICE TITLE */
+      .service-title {
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      /* RATING */
+      .rating {
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .rating i {
+        color: #bbb;
+        cursor: pointer;
+      }
+
+      .rating i.active {
+        color: gold;
+      }
+
+      /* COMMENT */
+      textarea {
+        width: 100%;
+        margin-top: 10px;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+      }
+
+      /* BUTTON */
+      button {
+        margin-top: 10px;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        background: #38bdf8;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div>MyStudio</div>
+
+      <nav class="nav-center">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Packages</a>
+        <a href="#">Booking</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <div class="main">
+      <div class="gallery">
+        <!-- SERVICE 1 -->
+        <div class="gallery-item">
+          <form
+            action="https://formsubmit.co/haribca40@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="New Service Feedback" />
+            <input type="hidden" name="_template" value="table" />
+
+            <img
+              src="https://images.unsplash.com/photo-1529636798458-92182e662485"
+            />
+
+            <div class="service-title">Wedding Shoot</div>
+
+            <div class="rating">
+              <i class="fa-solid fa-star" data-star="1"></i>
+              <i class="fa-solid fa-star" data-star="2"></i>
+              <i class="fa-solid fa-star" data-star="3"></i>
+              <i class="fa-solid fa-star" data-star="4"></i>
+              <i class="fa-solid fa-star" data-star="5"></i>
+            </div>
+
+            <input type="hidden" name="Service" value="Wedding Shoot" />
+            <input type="hidden" name="Rating" class="rating-value" />
+
+            <textarea
+              name="Comment"
+              placeholder="Write your feedback..."
+              required
+            ></textarea>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+
+        <!-- SERVICE 2 -->
+        <div class="gallery-item">
+          <form
+            action="https://formsubmit.co/haribca40@gmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="New Service Feedback" />
+            <input type="hidden" name="_template" value="table" />
+
+            <img
+              src="https://images.unsplash.com/photo-1519741497674-611481863552"
+            />
+
+            <div class="service-title">Pre Wedding Shoot</div>
+
+            <div class="rating">
+              <i class="fa-solid fa-star" data-star="1"></i>
+              <i class="fa-solid fa-star" data-star="2"></i>
+              <i class="fa-solid fa-star" data-star="3"></i>
+              <i class="fa-solid fa-star" data-star="4"></i>
+              <i class="fa-solid fa-star" data-star="5"></i>
+            </div>
+
+            <input type="hidden" name="Service" value="Pre Wedding Shoot" />
+            <input type="hidden" name="Rating" class="rating-value" />
+
+            <textarea
+              name="Comment"
+              placeholder="Write your feedback..."
+              required
+            ></textarea>
+
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // RATING SCRIPT
+      document.querySelectorAll(".gallery-item").forEach((card) => {
+        const stars = card.querySelectorAll(".rating i");
+        const ratingInput = card.querySelector(".rating-value");
+
+        stars.forEach((star, index) => {
+          star.addEventListener("click", () => {
+            stars.forEach((s) => s.classList.remove("active"));
+
+            for (let i = 0; i <= index; i++) {
+              stars[i].classList.add("active");
+            }
+
+            ratingInput.value = index + 1;
+          });
+        });
+
+        // prevent submit without rating
+        card.querySelector("form").addEventListener("submit", (e) => {
+          if (!ratingInput.value) {
+            alert("Please select rating ⭐");
+            e.preventDefault();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* RESET */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* LEFT ALIGN */
+  background: #0b132b;
+  padding: 15px 50px;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 50px; /* space between logo & menu */
+}
+
+.logo img {
+  width: 50px;
+}
+
+.logo h2 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.logo span {
+  color: #d4a522;
+}
+
+/* NAV LINKS */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* HOVER */
+.nav-menu a:hover {
+  color: #d4a522;
+}
+
+/* UNDERLINE EFFECT */
+.nav-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #d4a522;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK */
+.nav-menu a.active {
+  color: #d4a522;
+}
+
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+/* BRAND WRAPPER */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* LOGO IMAGE */
+.brand-logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  margin-top: 4px;
+}
+
+/* TEXT WRAPPER */
+.brand-name {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* "IMAGE" — White Elegant */
+.b-image {
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* "MASTERZ" — Modern Gold */
+.b-masterz {
+  font-family: "Montserrat", sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  color: #f1b121;
+  letter-spacing: 1px;
+}
+.highlight {
+  color: #d4a522; /* Stylish Blue */
+}
+/* MENU */
+.nav-center {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: #e2e8f0;
+  transition: 0.3s;
+}
+
+.nav-center a:hover {
+  color: white;
+}
+
+/* BUTTON */
+.book-btn {
+  border: 1px solid #e2e8f0;
+  padding: 6px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+}
+
+/* HERO BACKGROUND */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 60px;
+
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+    url("https://images.unsplash.com/photo-1529636798458-92182e662485");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* HERO TEXT */
+.hero-text {
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.hero h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.brand-logo {
+  width: 100px;
+  height: auto;
+}
+
+.hero-text p {
+  margin: 20px 0;
+  color: #cbd5e1;
+}
+
+/* BUTTON */
+.btn {
+  background: #3b82f6;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+/* SERVICES */
+.services {
+  padding: 80px 60px;
+  text-align: center;
+  background: #0f172a;
+}
+
+.services h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.service-box {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.card {
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+}
+.hero-text {
+  max-width: 800px;
+  margin: auto; /* ADD THIS */
+  background: rgba(112, 111, 111, 0.3);
+  padding: 70px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}

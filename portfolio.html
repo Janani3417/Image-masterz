@@ -1,15 +1,15 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Portfolio</title>
+    <title>Services</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="sidebar">
       <h2>MyStudio</h2>
       <a href="index.html">Home</a>
-      <a href="portfolio.html">Portfolio</a>
+      <a href="Services.html">Services</a>
     </div>
 
     <div class="main">
@@ -26,5 +26,124 @@
         />
       </div>
     </div>
+  </body>
+</html> -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Services</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* Rating Stars */
+      .rating {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
+      .rating i {
+        font-size: 20px;
+        color: #bbb;
+        transition: 0.3s;
+      }
+
+      .rating i.active {
+        color: gold;
+      }
+
+      .gallery-item {
+        text-align: center;
+      }
+
+      .gallery img {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 10px;
+        display: block;
+        margin: auto;
+      }
+    </style>
+
+    <!-- Font Awesome for Stars -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+
+  <body>
+    <div class="sidebar">
+      <h2>MyStudio</h2>
+      <a href="index.html">Home</a>
+      <a href="Services.html">Services</a>
+    </div>
+
+    <div class="main">
+      <h2 class="section-title">Our Work</h2>
+
+      <div class="gallery">
+
+        <!-- IMAGE 1 -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1529636798458-92182e662485" />
+
+          <div class="rating" data-id="1">
+            <i class="fa-solid fa-star" data-star="1"></i>
+            <i class="fa-solid fa-star" data-star="2"></i>
+            <i class="fa-solid fa-star" data-star="3"></i>
+            <i class="fa-solid fa-star" data-star="4"></i>
+            <i class="fa-solid fa-star" data-star="5"></i>
+          </div>
+        </div>
+
+        <!-- IMAGE 2 -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552" />
+
+          <div class="rating" data-id="2">
+            <i class="fa-solid fa-star" data-star="1"></i>
+            <i class="fa-solid fa-star" data-star="2"></i>
+            <i class="fa-solid fa-star" data-star="3"></i>
+            <i class="fa-solid fa-star" data-star="4"></i>
+            <i class="fa-solid fa-star" data-star="5"></i>
+          </div>
+        </div>
+
+        <!-- IMAGE 3 -->
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" />
+
+          <div class="rating" data-id="3">
+            <i class="fa-solid fa-star" data-star="1"></i>
+            <i class="fa-solid fa-star" data-star="2"></i>
+            <i class="fa-solid fa-star" data-star="3"></i>
+            <i class="fa-solid fa-star" data-star="4"></i>
+            <i class="fa-solid fa-star" data-star="5"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Rating Script -->
+    <script>
+      document.querySelectorAll(".rating i").forEach((star) => {
+        star.addEventListener("click", function () {
+          let rating = this.dataset.star;
+          let parent = this.parentElement;
+
+          parent.querySelectorAll("i").forEach((s) => {
+            s.classList.remove("active");
+          });
+
+          for (let i = 0; i < rating; i++) {
+            parent.querySelectorAll("i")[i].classList.add("active");
+          }
+        });
+      });
+    </script>
+
   </body>
 </html>
