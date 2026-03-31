@@ -1,78 +1,346 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Packages</title>
-  <style>
-      /* ---------------- NAVBAR ---------------- */
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Packages</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background:
+          linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)),
+          url("https://images.unsplash.com/photo-1529636798458-92182e662485");
+        background-size: cover;
+        color: white;
+      }
+
+      /* NAVBAR */
       .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 60px;
         position: fixed;
-        width: 100%;
         top: 0;
-        left: 0;
-        z-index: 100;
-        background: rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(6px);
+        width: 100%;
+        padding: 18px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(15px);
+        z-index: 1000;
       }
 
       .logo {
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
+        position: absolute;
+        left: 30px;
+        font-size: 22px;
+        font-weight: 600;
       }
 
       .nav-center {
         display: flex;
-        gap: 30px;
+        gap: 35px;
       }
 
       .nav-center a {
+        color: #ccc;
         text-decoration: none;
-        color: #e2e8f0;
-        font-size: 18px;
+        font-size: 16px;
+        position: relative;
+      }
+
+      .nav-center a::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background: linear-gradient(90deg, #fbbf24, #f97316);
+        left: 0;
+        bottom: -5px;
+        transition: 0.4s;
+      }
+
+      .nav-center a:hover::after {
+        width: 100%;
       }
 
       .nav-center a:hover {
+        color: #fbbf24;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-right: 100px; /* space between logo & menu */
+      }
+
+      .logo img {
+        width: 50px;
+      }
+
+      .logo h2 {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .logo span {
+        color: #d4a522;
+      }
+
+      /* MAIN */
+      .main {
+        margin-top: 120px;
+        text-align: center;
+      }
+
+      .packages {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 35px;
+        padding: 20px;
+      }
+
+      /* CARD */
+      .card {
+        width: 300px;
+        padding: 25px;
+        border-radius: 20px;
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: 0.4s;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 20px;
+        padding: 1px;
+        background: linear-gradient(120deg, #00c6ff, #0072ff, #ff9800);
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+      }
+
+      .card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      }
+
+      /* PRICE */
+      .price {
+        background: linear-gradient(45deg, #ff9800, #ff5722);
+        padding: 8px 18px;
+        border-radius: 30px;
+        display: inline-block;
+        margin: 10px 0;
+        font-weight: bold;
+      }
+
+      /* BUTTON */
+      .btn {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        padding: 10px 15px;
         color: white;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        display: inline-block;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: scale(1.08);
+        background: linear-gradient(45deg, #0072ff, #00c6ff);
+      }
+
+      /* DETAILS */
+      .details {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.4s ease;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      .details.show {
+        max-height: 500px;
+        margin-top: 10px;
+      }
+
+      /* BADGE */
+      .card:nth-child(2)::after {
+        content: "POPULAR";
+        position: absolute;
+        top: 15px;
+        right: -35px;
+        background: #fbbf24;
+        color: black;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      /* PAYMENT */
+      .payment {
+        margin-top: 60px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        backdrop-filter: blur(10px);
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        .nav-center {
+          gap: 15px;
+          font-size: 14px;
+        }
+
+        .card {
+          width: 90%;
+        }
       }
     </style>
+  </head>
 
-   <link rel="stylesheet" href="style.css">
-
-  
-</head>
-<body>
-
-<!-- <div class="sidebar">
-  <h2>MyStudio</h2>
-  <a href="index.html">Home</a>
-  <a href="packages.html">Packages</a>
-</div> -->
-<!-- ---------- HEADER NAVBAR ---------- -->
+  <body>
     <header class="navbar">
-      <div class="logo">MyStudio</div>
-
-      <nav class="nav-center">
+      <div class="logo">
+        <img src="image/logo2.png" alt="logo" />
+        <h2>Image <span>Masterz</span></h2>
+      </div>
+      <div class="nav-center">
         <a href="index.html">Home</a>
         <a href="Services.html">Services</a>
         <a href="packages.html">Packages</a>
         <a href="booking.html">Booking</a>
         <a href="contact.html">Contact</a>
-      </nav>
+      </div>
     </header>
-<div class="main">
-  <h2 class="section-title">Packages</h2>
-  <div class="packages">
-    <div class="card">
-      <h3>Wedding</h3>
-      <p>₹50,000</p>
+
+    <div class="main">
+      <h2>Our Packages</h2>
+
+      <div class="packages">
+        <!-- BASIC -->
+        <div class="card">
+          <h3>Basic Package</h3>
+          <div class="price">₹44,999</div>
+          <button class="btn" onclick="toggleDetails(this)">
+            View Details
+          </button>
+
+          <div class="details">
+            <ul>
+              <li>Traditional Photo - 1</li>
+              <li>Traditional Video - 1</li>
+              <li>Album (80 pages)</li>
+              <li>Video with pendrive</li>
+              <li>Family Frame - 2</li>
+            </ul>
+          </div>
+
+          <a href="booking.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- STANDARD -->
+        <div class="card">
+          <h3>Standard Package</h3>
+          <div class="price">₹69,999</div>
+          <button class="btn" onclick="toggleDetails(this)">
+            View Details
+          </button>
+
+          <div class="details">
+            <ul>
+              <li>Traditional Photo - 1</li>
+              <li>Traditional Video - 1</li>
+              <li>Candid Photo - 1</li>
+              <li>Album (100 pages)</li>
+              <li>Video with pendrive</li>
+              <li>Family Frame - 2</li>
+            </ul>
+          </div>
+
+          <a href="booking.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="card">
+          <h3>Premium Package</h3>
+          <div class="price">₹99,999</div>
+          <button class="btn" onclick="toggleDetails(this)">
+            View Details
+          </button>
+
+          <div class="details">
+            <ul>
+              <li>Traditional Photo - 1</li>
+              <li>Traditional Video - 1</li>
+              <li>Candid Photo - 1</li>
+              <li>Candid Video - 1</li>
+              <li>Album (120 pages)</li>
+            </ul>
+          </div>
+
+          <a href="booking.html" class="btn">Book Now</a>
+        </div>
+
+        <!-- ELITE -->
+        <div class="card">
+          <h3>Elite Package</h3>
+          <div class="price">₹1,59,999</div>
+          <button class="btn" onclick="toggleDetails(this)">
+            View Details
+          </button>
+
+          <div class="details">
+            <ul>
+              <li>Drone (Helicam)</li>
+              <li>Pre/Post Wedding Shoot</li>
+              <li>Luxury Album</li>
+            </ul>
+          </div>
+
+          <a href="booking.html" class="btn">Book Now</a>
+        </div>
+      </div>
+
+      <!-- PAYMENT -->
+      <div class="payment">
+        <h2>Payment Details</h2>
+        <p><b>20% - Booking Confirmation</b></p>
+        <p><b>70% - Event Day</b></p>
+        <p><b>10% - Album Approval</b></p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Event</h3>
-      <p>₹20,000</p>
-    </div>
+
+    <script>
+      function toggleDetails(btn) {
+        let details = btn.nextElementSibling;
+        details.classList.toggle("show");
+      }
+    </script>
+  </body>
 </html>

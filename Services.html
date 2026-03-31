@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Services</title>
+    <title>Our Services</title>
 
     <link
       rel="stylesheet"
@@ -10,16 +10,20 @@
     />
 
     <style>
-      /* RESET */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Arial;
+        font-family: "Poppins", sans-serif;
       }
 
       body {
-        background: #0f172a;
+        background:
+          linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+          url("https://images.unsplash.com/photo-1529636798458-92182e662485");
+
+        background-size: cover;
+        background-position: center;
         color: white;
       }
 
@@ -27,213 +31,338 @@
       .navbar {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         padding: 20px 60px;
         position: fixed;
         width: 100%;
         top: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
       }
 
       .nav-center {
         display: flex;
-        gap: 30px;
+        gap: 25px;
       }
 
       .nav-center a {
-        text-decoration: none;
         color: #e2e8f0;
+        text-decoration: none;
       }
 
-      /* MAIN */
-      .main {
+      /* HEADER */
+      .header {
         padding-top: 120px;
+        text-align: center;
       }
 
-      /* GALLERY */
-      .gallery {
-        display: flex;
+      .header h1 {
+        font-size: 40px;
+      }
+
+      .header p {
+        color: #94a3b8;
+        margin-top: 10px;
+      }
+
+      /* SECTION */
+      .section {
+        padding: 50px 60px;
+      }
+
+      .section h2 {
+        margin-bottom: 20px;
+        border-left: 4px solid #38bdf8;
+        padding-left: 10px;
+      }
+
+      /* GRID */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 25px;
-        flex-wrap: wrap;
-        justify-content: center;
       }
 
       /* CARD */
-      .gallery-item {
-        width: 260px;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 15px;
+      .card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
         border-radius: 15px;
         backdrop-filter: blur(10px);
+        transition: 0.4s;
       }
 
-      .gallery-item img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 10px;
+      .card:hover {
+        transform: translateY(-8px) scale(1.03);
+        background: rgba(56, 189, 248, 0.2);
       }
 
-      /* SERVICE TITLE */
-      .service-title {
-        margin-top: 10px;
-        font-weight: bold;
-        text-align: center;
+      .card i {
+        font-size: 25px;
+        color: #38bdf8;
       }
 
-      /* RATING */
-      .rating {
-        margin-top: 10px;
-        text-align: center;
+      .card h3 {
+        margin: 10px 0;
       }
 
-      .rating i {
-        color: #bbb;
-        cursor: pointer;
+      .card p {
+        font-size: 14px;
+        color: #cbd5f5;
       }
 
-      .rating i.active {
-        color: gold;
+      /* SCROLL ANIMATION */
+      .hidden {
+        opacity: 0;
+        transform: translateY(40px);
       }
 
-      /* COMMENT */
-      textarea {
-        width: 100%;
-        margin-top: 10px;
-        padding: 8px;
-        border-radius: 8px;
-        border: none;
-      }
-
-      /* BUTTON */
-      button {
-        margin-top: 10px;
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        background: #38bdf8;
-        font-weight: bold;
-        cursor: pointer;
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.8s ease;
       }
     </style>
   </head>
 
   <body>
     <header class="navbar">
-      <div>MyStudio</div>
-
+      <div><b>Image Masterz</b></div>
       <nav class="nav-center">
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Services</a>
-        <a href="#">Packages</a>
-        <a href="#">Booking</a>
-        <a href="#">Contact</a>
+        <a href="packages.html">Packages</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </header>
 
-    <div class="main">
-      <div class="gallery">
-        <!-- SERVICE 1 -->
-        <div class="gallery-item">
-          <form
-            action="https://formsubmit.co/haribca40@gmail.com"
-            method="POST"
-          >
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_subject" value="New Service Feedback" />
-            <input type="hidden" name="_template" value="table" />
+    <div class="header hidden">
+      <h1>Our Premium Services</h1>
+      <p>Capture your moments with perfection & creativity</p>
+    </div>
 
-            <img
-              src="https://images.unsplash.com/photo-1529636798458-92182e662485"
-            />
-
-            <div class="service-title">Wedding Shoot</div>
-
-            <div class="rating">
-              <i class="fa-solid fa-star" data-star="1"></i>
-              <i class="fa-solid fa-star" data-star="2"></i>
-              <i class="fa-solid fa-star" data-star="3"></i>
-              <i class="fa-solid fa-star" data-star="4"></i>
-              <i class="fa-solid fa-star" data-star="5"></i>
-            </div>
-
-            <input type="hidden" name="Service" value="Wedding Shoot" />
-            <input type="hidden" name="Rating" class="rating-value" />
-
-            <textarea
-              name="Comment"
-              placeholder="Write your feedback..."
-              required
-            ></textarea>
-
-            <button type="submit">Submit</button>
-          </form>
+    <!-- CORE -->
+    <div class="section hidden">
+      <h2>📸 Core Photography</h2>
+      <div class="grid">
+        <div class="card hidden">
+          <i class="fa-solid fa-ring"></i>
+          <h3>Wedding Photography</h3>
+          <p>Full coverage including engagement, reception & rituals.</p>
         </div>
 
-        <!-- SERVICE 2 -->
-        <div class="gallery-item">
-          <form
-            action="https://formsubmit.co/haribca40@gmail.com"
-            method="POST"
-          >
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_subject" value="New Service Feedback" />
-            <input type="hidden" name="_template" value="table" />
+        <div class="card hidden">
+          <i class="fa-solid fa-camera"></i>
+          <h3>Candid Photography</h3>
+          <p>Natural, emotional and unposed moments captured beautifully.</p>
+        </div>
 
-            <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552"
-            />
+        <div class="card hidden">
+          <i class="fa-solid fa-image"></i>
+          <h3>Traditional Photography</h3>
+          <p>Classic posed shots for timeless memories.</p>
+        </div>
 
-            <div class="service-title">Pre Wedding Shoot</div>
+        <div class="card hidden">
+          <i class="fa-solid fa-calendar"></i>
+          <h3>Event Photography</h3>
+          <p>Corporate events, birthdays & functions covered professionally.</p>
+        </div>
+      </div>
+    </div>
 
-            <div class="rating">
-              <i class="fa-solid fa-star" data-star="1"></i>
-              <i class="fa-solid fa-star" data-star="2"></i>
-              <i class="fa-solid fa-star" data-star="3"></i>
-              <i class="fa-solid fa-star" data-star="4"></i>
-              <i class="fa-solid fa-star" data-star="5"></i>
-            </div>
+    <!-- VIDEO -->
+    <div class="section hidden">
+      <h2>🎥 Videography Services</h2>
+      <div class="grid">
+        <div class="card hidden">
+          <i class="fa-solid fa-film"></i>
+          <h3>Cinematic Films</h3>
+          <p>High-quality storytelling wedding films.</p>
+        </div>
 
-            <input type="hidden" name="Service" value="Pre Wedding Shoot" />
-            <input type="hidden" name="Rating" class="rating-value" />
+        <div class="card hidden">
+          <i class="fa-solid fa-video"></i>
+          <h3>Highlight Videos</h3>
+          <p>Short, emotional highlights of your special day.</p>
+        </div>
 
-            <textarea
-              name="Comment"
-              placeholder="Write your feedback..."
-              required
-            ></textarea>
+        <div class="card hidden">
+          <i class="fa-solid fa-drone"></i>
+          <h3>Drone Videography</h3>
+          <p>Beautiful aerial shots for stunning visuals.</p>
+        </div>
 
-            <button type="submit">Submit</button>
-          </form>
+        <div class="card hidden">
+          <i class="fa-solid fa-broadcast-tower"></i>
+          <h3>Live Streaming</h3>
+          <p>Stream your events live for family & friends.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRE WEDDING -->
+    <div class="section hidden">
+      <h2>💍 Pre & Post Wedding</h2>
+      <div class="grid">
+        <div class="card hidden">
+          <i class="fa-solid fa-heart"></i>
+          <h3>Pre Wedding Shoot</h3>
+          <p>Creative outdoor and location-based shoots.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-camera-retro"></i>
+          <h3>Post Wedding Shoot</h3>
+          <p>Romantic shoots after your big day.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-envelope"></i>
+          <h3>Save the Date</h3>
+          <p>Creative invitation videos for your wedding.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMERCIAL -->
+    <div class="section hidden">
+      <h2>🧑‍💼 Commercial & Professional</h2>
+      <div class="grid">
+        <div class="card hidden">
+          <i class="fa-solid fa-box"></i>
+          <h3>Product Photography</h3>
+          <p>Perfect for eCommerce & business branding.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>Food Photography</h3>
+          <p>Make your dishes look irresistible.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-user"></i>
+          <h3>Model Portfolio</h3>
+          <p>Professional fashion & portfolio shoots.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-briefcase"></i>
+          <h3>Corporate Headshots</h3>
+          <p>Professional images for your brand identity.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAL -->
+    <div class="section hidden">
+      <h2>👨‍👩‍👧 Personal Shoots</h2>
+      <div class="grid">
+        <div class="card hidden">
+          <i class="fa-solid fa-baby"></i>
+          <h3>Maternity Shoot</h3>
+          <p>Celebrate motherhood with elegant photos.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-child"></i>
+          <h3>Kids Photography</h3>
+          <p>Capture cute and joyful childhood moments.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-users"></i>
+          <h3>Family Portraits</h3>
+          <p>Timeless family memories captured perfectly.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-cake-candles"></i>
+          <h3>Birthday Shoots</h3>
+          <p>Make your celebrations unforgettable.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDITING -->
+    <div class="section hidden">
+      <h2>🎨 Editing & Design</h2>
+      <div class="grid">
+        <div class="card hidden">
+          <i class="fa-solid fa-pen-nib"></i>
+          <h3>Photo Editing</h3>
+          <p>Professional retouching & color grading.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-book"></i>
+          <h3>Album Designing</h3>
+          <p>Premium album layouts with creative designs.</p>
+        </div>
+
+        <div class="card hidden">
+          <i class="fa-solid fa-print"></i>
+          <h3>Printing & Frames</h3>
+          <p>High-quality prints and customized frames.</p>
         </div>
       </div>
     </div>
 
     <script>
-      // RATING SCRIPT
-      document.querySelectorAll(".gallery-item").forEach((card) => {
-        const stars = card.querySelectorAll(".rating i");
-        const ratingInput = card.querySelector(".rating-value");
-
-        stars.forEach((star, index) => {
-          star.addEventListener("click", () => {
-            stars.forEach((s) => s.classList.remove("active"));
-
-            for (let i = 0; i <= index; i++) {
-              stars[i].classList.add("active");
-            }
-
-            ratingInput.value = index + 1;
-          });
-        });
-
-        // prevent submit without rating
-        card.querySelector("form").addEventListener("submit", (e) => {
-          if (!ratingInput.value) {
-            alert("Please select rating ⭐");
-            e.preventDefault();
+      // SCROLL ANIMATION
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
           }
         });
+      });
+
+      document.querySelectorAll(".hidden").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // STAGGER EFFECT
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+      });
+
+      // ===============================
+      // ✅ AUTO SCROLL (FIXED VERSION)
+      // ===============================
+      let isPaused = false;
+
+      function startAutoScroll() {
+        setInterval(() => {
+          if (!isPaused) {
+            window.scrollBy(0, 1); // 🔥 change this value (1–3)
+          }
+
+          // reset to top
+          if (
+            window.innerHeight + window.scrollY >=
+            document.body.scrollHeight - 2
+          ) {
+            window.scrollTo(0, 0);
+          }
+        }, 20); // 🔥 speed control (lower = faster)
+      }
+
+      startAutoScroll();
+
+      // ===============================
+      // ✅ PAUSE WHEN USER INTERACTS
+      // ===============================
+      window.addEventListener("wheel", () => {
+        isPaused = true;
+
+        clearTimeout(window.scrollTimeout);
+        window.scrollTimeout = setTimeout(() => {
+          isPaused = false;
+        }, 5000);
       });
     </script>
   </body>
