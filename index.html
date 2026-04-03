@@ -1,160 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Image Masterz</title>
+<head>
+<meta charset="UTF-8" />
+<title>Image Masterz</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="image/logo2.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" sizes="32x32" href="image/logo2.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="index.css" />
+<link rel="stylesheet" href="index.css" />
 
-    <!-- ✅ IMPORTANT: FONT AWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-    <style>
-      /* REVIEW DESIGN */
-      .review-section {
-        padding: 60px 20px;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.6);
-      }
+<style>
 
-      .review-form {
-        max-width: 400px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
+/* ===== REVIEW SECTION ===== */
+.review-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9));
+}
 
-      .review-form input,
-      .review-form textarea {
-        padding: 10px;
-        border-radius: 8px;
-        border: none;
-      }
+.review-section h2 {
+  margin-bottom: 40px;
+}
 
-      .review-form button {
-        padding: 12px;
-        border: none;
-        border-radius: 8px;
-        background: #38bdf8;
-        cursor: pointer;
-        font-weight: bold;
-      }
+/* REVIEW CARDS */
+.review-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
 
-      /* STARS */
-      .rating i {
-        font-size: 22px;
-        color: #aaa;
-        cursor: pointer;
-      }
+.review-card {
+  width: 280px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  text-align: left;
+  transition: 0.3s;
+}
 
-      .rating i.active {
-        color: gold;
-      }
-    </style>
-  </head>
+.review-card:hover {
+  transform: translateY(-8px);
+}
 
-  <body>
-    <!-- HEADER -->
-    <header class="navbar">
-      <div class="logo">
-        <img src="image/logo2.png" alt="logo" />
-        <h2>Image <span>Masterz</span></h2>
+.review-card h4 {
+  margin-bottom: 5px;
+}
+
+.review-card .stars {
+  color: gold;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.review-card p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: #fbbf24;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .review-card {
+    width: 90%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="navbar">
+  <div class="logo">
+    <img src="image/logo2.png" alt="logo" />
+    <h2>Image <span>Masterz</span></h2>
+  </div>
+
+  <nav class="nav-menu">
+    <a href="#" class="active">Home</a>
+    <a href="Services.html">Services</a>
+    <a href="packages.html">Packages</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1 class="highlight">
+      Freeze Your Beautiful Moments
+      <img src="image/logo2.png" class="brand-logo" />
+    </h1>
+    <p>Capturing Weddings, Events & Timeless Memories</p>
+    <br />
+    <a href="booking.html" class="btn">Book Your Session</a>
+  </div>
+</section>
+
+<!-- ✅ DYNAMIC REVIEW SECTION -->
+<section class="review-section">
+
+<h2>Client Reviews ✨</h2>
+
+<div id="review-list" class="review-cards"></div>
+
+</section>
+
+<script>
+function loadReviews() {
+  let container = document.getElementById("review-list");
+  let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+
+  if (reviews.length === 0) {
+    container.innerHTML = "<p>No reviews yet</p>";
+    return;
+  }
+
+  container.innerHTML = "";
+
+  reviews.forEach(r => {
+
+    let stars = "⭐".repeat(r.stars);
+    let firstLetter = r.name.charAt(0).toUpperCase();
+
+    container.innerHTML += `
+      <div class="review-card">
+        <div class="avatar">${firstLetter}</div>
+        <h4>${r.name}</h4>
+        <div class="stars">${stars}</div>
+        <p>${r.text}</p>
       </div>
+    `;
+  });
+}
 
-      <nav class="nav-menu">
-        <a href="#" class="active">Home</a>
-        <a href="Services.html">Services</a>
-        <a href="packages.html">Packages</a>
-        <a href="booking.html">Booking</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+loadReviews();
+</script>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-text">
-        <h1 class="highlight">
-          Freeze Your Beautiful Moments
-          <img src="image/logo2.png" class="brand-logo" alt="logo" />
-        </h1>
-        <p>Capturing Weddings, Events & Timeless Memories with Perfection</p>
-        <br />
-        <a href="#" class="btn">Book Your Session</a>
-      </div>
-    </section>
-
-    <!-- REVIEW SECTION -->
-    <section class="review-section">
-      <h2>Client Reviews ⭐</h2>
-
-      <form
-        action="https://formsubmit.co/haribca40@gmail.com"
-        method="POST"
-        class="review-form"
-      >
-        <!-- REQUIRED -->
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_subject" value="New Client Review" />
-        <input type="hidden" name="_template" value="table" />
-
-        <!-- NAME -->
-        <input type="text" name="Name" placeholder="Your Name" required />
-
-        <!-- STAR -->
-        <div class="rating">
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-          <i class="fa-solid fa-star"></i>
-        </div>
-
-        <input type="hidden" name="Rating" id="rating-value" />
-
-        <!-- COMMENT -->
-        <textarea
-          name="Comment"
-          placeholder="Write your review..."
-          required
-        ></textarea>
-
-        <button type="submit">Submit Review</button>
-      </form>
-    </section>
-
-    <script>
-      // STAR RATING
-      const stars = document.querySelectorAll(".rating i");
-      const ratingInput = document.getElementById("rating-value");
-
-      stars.forEach((star, index) => {
-        star.addEventListener("click", () => {
-          stars.forEach((s) => s.classList.remove("active"));
-
-          for (let i = 0; i <= index; i++) {
-            stars[i].classList.add("active");
-          }
-
-          ratingInput.value = index + 1;
-        });
-      });
-
-      // VALIDATION
-      document
-        .querySelector(".review-form")
-        .addEventListener("submit", function (e) {
-          if (!ratingInput.value) {
-            alert("Please select rating ⭐");
-            e.preventDefault();
-          }
-        });
-    </script>
-  </body>
+</body>
 </html>

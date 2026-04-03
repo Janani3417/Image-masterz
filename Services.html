@@ -35,7 +35,7 @@
         position: fixed;
         width: 100%;
         top: 0;
-        background: rgba(0, 0, 0, 0.6);
+        background: #0b132b; 
         backdrop-filter: blur(10px);
         z-index: 1000;
       }
@@ -49,6 +49,40 @@
         color: #e2e8f0;
         text-decoration: none;
       }
+      
+nav {
+  margin-left: auto;
+  display: flex;
+  gap: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+nav a.active {
+  color: #fbbf24;
+}
+
+nav a.active::after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background: #fbbf24;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  border-radius: 5px;
+}
+
+nav a:hover {
+  color: #fbbf24;
+}
+
 
       /* HEADER */
       .header {
@@ -127,6 +161,7 @@
 
   <body>
     <header class="navbar">
+       <img src="assets/logo.png" alt="logo"/>
       <div><b>Image Masterz</b></div>
       <nav class="nav-center">
         <a href="index.html">Home</a>

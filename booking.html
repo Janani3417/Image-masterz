@@ -1,208 +1,276 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Booking</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8" />
+<title>Premium Booking</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-      /* ---------------- NAVBAR ---------------- */
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 60px;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        background: rgba(0, 0, 0, 0.15);
-        backdrop-filter: blur(6px);
-      }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
 
-      .logo {
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-      }
+<style>
 
-      .nav-center {
-        display: flex;
-        gap: 30px;
-      }
+* { box-sizing: border-box; }
 
-      .nav-center a {
-        text-decoration: none;
-        color: #e2e8f0;
-        font-size: 18px;
-      }
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+    url("https://images.unsplash.com/photo-1529636798458-92182e662485");
 
-      .nav-center a:hover {
-        color: white;
-      }
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
 
-      /* ---------- BACKGROUND ---------- */
-      body {
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(#0f1a2b, #162236);
-        font-family: Arial, sans-serif;
-        color: white;
-      }
+/* ⭐ EXACT SAME HEADER FROM HOME PAGE ⭐ */
+header {
+  width: 100%;
+  background: #0b132b;     /* SAME COLOR */
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+}
 
-      /* ---------- MAIN (fix center issue) ---------- */
-      .main {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 120px;
-        background:
-          linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
-          url("https://images.unsplash.com/photo-1529636798458-92182e662485");
+header img {
+  width: 45px;
+  margin-right: 10px;
+}
 
-        background-size: cover;
-        background-position: center; /* space for navbar */
-      }
+header .brand {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+}
 
-      /* ---------- FORM CONTAINER ---------- */
-      .form-container {
-        width: 100%;
-        max-width: 550px;
-        background: rgba(255, 255, 255, 0.09);
-        padding: 40px;
-        border-radius: 15px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
-      }
+header .brand span {
+  color: #fbbf24;
+}
 
-      h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        font-size: 28px;
-      }
+nav {
+  margin-left: auto;
+  display: flex;
+  gap: 40px;
+}
 
-      .input-group {
-        margin-bottom: 18px;
-      }
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding-bottom: 5px;
+  position: relative;
+}
 
-      .input-group label {
-        display: block;
-        margin-bottom: 6px;
-        font-size: 16px;
-      }
+nav a.active {
+  color: #fbbf24;
+}
 
-      input,
-      textarea {
-        width: 100%;
-        padding: 12px;
-        border: none;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.17);
-        color: white;
-        font-size: 15px;
-      }
+nav a.active::after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background: #fbbf24;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  border-radius: 5px;
+}
 
-      textarea {
-        height: 100px;
-        resize: none;
-      }
+nav a:hover {
+  color: #fbbf24;
+}
 
-      button {
-        width: 100%;
-        padding: 14px;
-        background: #4f8bfd;
-        border: none;
-        border-radius: 8px;
-        font-size: 17px;
-        cursor: pointer;
-        color: white;
-        margin-top: 15px;
-      }
+/* MAIN LAYOUT */
+.main {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 120px;  /* space for fixed header */
+}
 
-      button:hover {
-        background: #3f76d9;
-      }
-    </style>
-  </head>
+/* LEFT IMAGE */
+.left {
+  flex: 1;
+  background: url("https://images.unsplash.com/photo-1522673607200-164d1b6ce486") center/cover;
+  position: relative;
+}
 
-  <body>
-    <!-- ---------- HEADER NAVBAR ---------- -->
-    <header class="navbar">
-      <div class="logo">MyStudio</div>
+.left::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.7), transparent);
+}
 
-      <nav class="nav-center">
-        <a href="index.html">Home</a>
-        <a href="Services.html">Services</a>
-        <a href="packages.html">Packages</a>
-        <a href="booking.html">Booking</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
+/* RIGHT FORM */
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
 
-    <!-- ---------- MAIN CONTENT ---------- -->
-    <div class="main">
-      <div class="form-container">
-        <h2>📸 Book Your Event</h2>
+/* FORM BOX */
+.form-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
 
-        <form
-          onsubmit="
-            sendWhatsApp();
-            return false;
-          "
-        >
-          <div class="input-group">
-            <label>Name</label>
-            <input
-              type="text"
-              id="name"
-              required
-              placeholder="Enter your Name"
-            />
-          </div>
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-          <div class="input-group">
-            <label>Date</label>
-            <input type="date" id="date" required />
-          </div>
+/* INPUTS */
+.input-group {
+  margin-bottom: 15px;
+}
 
-          <div class="input-group">
-            <label>Event Type</label>
-            <input type="text" id="event" placeholder="Wedding / Birthday" />
-          </div>
+.input-group label {
+  font-size: 14px;
+  opacity: 0.8;
+}
 
-          <div class="input-group">
-            <label>Message</label>
-            <textarea id="message" placeholder="message"></textarea>
-          </div>
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: "Poppins";
+}
 
-          <button type="submit">🚀 Book Now</button>
-        </form>
-      </div>
-    </div>
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  background: linear-gradient(45deg,#00c6ff,#0072ff);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    <script>
-      function sendWhatsApp() {
-        let name = document.getElementById("name").value;
-        let date = document.getElementById("date").value;
-        let event = document.getElementById("event").value;
-        let msg = document.getElementById("message").value;
+button:hover {
+  transform: scale(1.05);
+}
 
-        let whatsappURL =
-          "https://wa.me/91XXXXXXXXXX?text=" +
-          "Booking Details:" +
-          "%0A%0AName: " +
-          name +
-          "%0ADate: " +
-          date +
-          "%0AEvent: " +
-          event +
-          "%0AMessage: " +
-          msg;
+/* MOBILE */
+@media(max-width:900px){
+  .main {
+    flex-direction: column;
+  }
 
-        window.open(whatsappURL, "_blank");
-      }
-    </script>
-  </body>
+  .left {
+    height: 250px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ⭐ SAME HEADER ADDED ⭐ -->
+<header>
+  <img src="assets/logo.png" alt="logo"/>
+  <div class="brand">Image <span>Masterz</span></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="packages.html">Packages</a>
+    <a href="booking.html" class="active">Booking</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="main">
+
+<!-- LEFT IMAGE -->
+<div class="left"></div>
+
+<!-- RIGHT FORM -->
+<div class="right">
+
+<div class="form-container">
+<h2>📸 Premium Booking</h2>
+
+<form onsubmit="sendWhatsApp(); return false;">
+
+<div class="input-group">
+<label>Name</label>
+<input type="text" id="name" required />
+</div>
+
+<div class="input-group">
+<label>Date</label>
+<input type="date" id="date" required />
+</div>
+
+<div class="input-group">
+<label>Package</label>
+<select id="package">
+<option>Basic</option>
+<option>Standard</option>
+<option>Premium</option>
+<option>Elite</option>
+</select>
+</div>
+
+<div class="input-group">
+<label>Event Type</label>
+<input type="text" id="event" placeholder="Wedding / Birthday" />
+</div>
+
+<div class="input-group">
+<label>Message</label>
+<textarea id="message"></textarea>
+</div>
+
+<button type="submit">🚀 Book via WhatsApp</button>
+
+</form>
+</div>
+
+</div>
+</div>
+
+<script>
+function sendWhatsApp(){
+
+let name = document.getElementById("name").value;
+let date = document.getElementById("date").value;
+let pack = document.getElementById("package").value;
+let event = document.getElementById("event").value;
+let message = document.getElementById("message").value;
+
+let text = `Booking Request:
+Name: ${name}
+Date: ${date}
+Package: ${pack}
+Event: ${event}
+Message: ${message}`;
+
+let url = "https://wa.me/919876543210?text=" + encodeURIComponent(text);
+
+window.open(url, "_blank");
+}
+</script>
+
+</body>
 </html>

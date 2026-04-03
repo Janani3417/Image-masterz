@@ -1,105 +1,356 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8" />
+<title>Contact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-      <h2>MyStudio</h2>
-      <a href="index.html">Home</a>
-      <a href="booking.html">Booking</a>
-      <a href="contact.html">Contact</a>
-    </div>
+<style>
 
-    <!-- MAIN -->
-    <div class="main">
-      <!-- HERO -->
-      <div class="contact-hero">
-        <h1>Let’s Work Together 📸</h1>
-        <p>Book your events or reach us anytime</p>
-      </div>
+*{box-sizing:border-box;}
 
-      <!-- CONTACT SECTION -->
-      <div class="contact-container">
-        <!-- LEFT -->
-        <div class="contact-left">
-          <h2>Contact Info</h2>
+body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:
+  linear-gradient(rgba(10,10,10,0.7),rgba(10,10,10,0.9)),
+  url("https://images.unsplash.com/photo-1529636798458-92182e662485");
+  background-size:cover;
+  background-position:center;
+  color:white;
+}
 
-          <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <p>+91 9876543210</p>
-          </div>
+/* ⭐ EXACT HOME PAGE HEADER */
+header{
+  width:100%;
+  background:#0b132b;
+  display:flex;
+  align-items:center;
+  padding:20px 40px;
+  position:fixed;
+  top:0;
+  z-index:200;
+}
+header img{
+  width:45px;
+  margin-right:10px;
+}
+header .brand{
+  font-size:28px;
+  font-weight:bold;
+  color:white;
+}
+header .brand span{
+  color:#fbbf24;
+}
+nav{
+  margin-left:auto;
+  display:flex;
+  gap:40px;
+}
+nav a{
+  text-decoration:none;
+  color:white;
+  font-size:18px;
+  padding-bottom:5px;
+  position:relative;
+}
+nav a:hover{
+  color:#fbbf24;
+}
+nav a.active{
+  color:#fbbf24;
+}
+nav a.active::after{
+  content:"";
+  width:30px;
+  height:3px;
+  background:#fbbf24;
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  border-radius:5px;
+}
 
-          <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <p>mystudio@gmail.com</p>
-          </div>
+/* MAIN */
+.main{
+  margin-top:140px;
+  padding:20px;
+}
 
-          <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <p>Chennai, India</p>
-          </div>
+/* HERO */
+.contact-hero{text-align:center;margin-bottom:40px;}
+.contact-hero h1{font-size:36px;}
 
-          <div class="social">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-          </div>
-        </div>
+/* GRID */
+.contact-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+}
 
-        <!-- RIGHT -->
-        <div class="contact-right">
-          <h2>Send Message</h2>
+/* LEFT BOX */
+.contact-left,
+.contact-right{
+  width:350px;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.1);
+}
 
-          <form
-            onsubmit="
-              sendContact();
-              return false;
-            "
-          >
-            <input type="text" id="cname" placeholder="Your Name" required />
-            <input type="email" id="cemail" placeholder="Your Email" required />
-            <textarea id="cmessage" placeholder="Your Message"></textarea>
+/* CONTACT ITEMS */
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:10px 0;
+}
+.contact-item i{color:#fbbf24;}
+.social a{
+  font-size:20px;margin-right:10px;color:white;
+}
+.social a:hover{color:#fbbf24;}
 
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-      </div>
+/* FORM */
+.contact-right input,
+.contact-right textarea{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  outline:none;
+  border:none;
+}
+.contact-right button{
+  width:100%;
+  padding:12px;
+  margin-top:15px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(45deg,#00c6ff,#0072ff);
+  color:white;
+  cursor:pointer;
+}
+.contact-right button:hover{
+  transform:scale(1.05);
+}
 
-      <!-- MAP -->
-      <div class="map">
-        <iframe
-          src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"
-        >
-        </iframe>
-      </div>
+/* ⭐ NEW REVIEW FORM */
+.review-form{
+  margin:40px auto;
+  max-width:400px;
+  padding:25px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.1);
+}
+.review-form h2{text-align:center;margin-bottom:10px;}
 
-      <!-- FOOTER -->
-      <footer class="footer">
-        <p>© 2026 MyStudio | All Rights Reserved</p>
-      </footer>
-    </div>
+.input-box{
+  position:relative;
+  margin:20px 0;
+}
+.input-box input,
+.input-box textarea{
+  width:100%;
+  padding:10px;
+  background:rgba(255,255,255,0.08);
+  border:none;
+  border-radius:10px;
+  outline:none;
+  color:white;
+}
+.input-box label{
+  position:absolute;
+  top:-12px;
+  left:10px;
+  font-size:14px;
+  color:#fbbf24;
+}
 
-    <!-- FLOATING BUTTONS -->
-    <a href="tel:9876543210" class="call-btn"
-      ><i class="fa-solid fa-phone"></i
-    ></a>
-    <a href="https://wa.me/919876543210" class="whatsapp-btn"
-      ><i class="fa-brands fa-whatsapp"></i
-    ></a>
+/* ⭐ STAR RATING */
+.rating i{
+  font-size:25px;
+  color:#777;
+  cursor:pointer;
+}
+.rating i.active{
+  color:#ffd700;
+}
 
-    <script src="script.js"></script>
-  </body>
+.review-form button{
+  width:100%;
+  padding:12px;
+  background:#25d366;
+  color:white;
+  border:none;
+  border-radius:20px;
+  margin-top:10px;
+  cursor:pointer;
+}
+.review-form button:hover{
+  transform:scale(1.05);
+}
+
+/* MAP */
+.map iframe{
+  width:100%;
+  height:300px;
+  border:none;
+  border-radius:15px;
+}
+
+/* FOOTER */
+.footer{text-align:center;margin-top:40px;opacity:0.7;}
+
+@media(max-width:768px){
+  .contact-left,.contact-right{width:90%;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ⭐ HEADER -->
+<header>
+  <img src="assets/logo.png" alt="logo"/>
+  <div class="brand">Image <span>Masterz</span></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="packages.html">Packages</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<div class="main">
+
+<!-- HERO -->
+<div class="contact-hero">
+  <h1>Let’s Work Together 📸</h1>
+  <p>Book your events or reach us anytime</p>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-container">
+
+<div class="contact-left">
+<h2>Contact Info</h2>
+
+<div class="contact-item"><i class="fa-solid fa-phone"></i> +91 9876543210</div>
+<div class="contact-item"><i class="fa-solid fa-envelope"></i> mystudio@gmail.com</div>
+<div class="contact-item"><i class="fa-solid fa-location-dot"></i> Chennai, India</div>
+
+<div class="social">
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+<a href="#"><i class="fa-brands fa-facebook"></i></a>
+<a href="#"><i class="fa-brands fa-youtube"></i></a>
+</div>
+</div>
+
+<div class="contact-right">
+<h2>Send Message</h2>
+
+<form onsubmit="sendContact(); return false;">
+<input id="cname" type="text" placeholder="Your Name" required>
+<input id="cemail" type="email" placeholder="Your Email" required>
+<textarea id="cmessage" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</form>
+
+</div>
+</div>
+
+
+<form class="review-form" onsubmit="saveReview(); return false;">
+<h2>Write a Review ⭐</h2>
+
+<div class="input-box">
+<input type="text" id="rname" required>
+<label>Your Name</label>
+</div>
+
+<div class="rating" id="rating">
+<i onclick="rate(1)" class="fa-solid fa-star"></i>
+<i onclick="rate(2)" class="fa-solid fa-star"></i>
+<i onclick="rate(3)" class="fa-solid fa-star"></i>
+<i onclick="rate(4)" class="fa-solid fa-star"></i>
+<i onclick="rate(5)" class="fa-solid fa-star"></i>
+</div>
+
+<div class="input-box">
+<textarea id="rtext" required></textarea>
+<label>Your Review</label>
+</div>
+
+<button>Submit Review</button>
+</form>
+
+<!-- MAP -->
+<div class="map">
+<iframe src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
+
+<footer class="footer">© 2026 Image Masterz | All Rights Reserved</footer>
+
+</div>
+
+<!-- ⭐ FLOAT BUTTONS -->
+<a href="tel:9876543210" class="call-btn"><i class="fa-solid fa-phone"></i></a>
+<a href="https://wa.me/919876543210" class="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i></a>
+
+<script>
+
+function sendContact(){ alert("Message sent successfully!"); }
+
+/* ⭐ STAR RATING SCRIPT */
+let ratingValue = 0;
+
+function rate(stars){
+  ratingValue = stars;
+  let starList = document.querySelectorAll("#rating i");
+  starList.forEach((star, index)=>{
+    star.classList.toggle("active", index < stars);
+  });
+}
+
+/* ⭐ SAVE REVIEW TO LOCAL STORAGE */
+function saveReview(){
+  let name = document.getElementById("rname").value;
+  let review = document.getElementById("rtext").value;
+
+  if(ratingValue === 0){
+    alert("Please select a star rating!");
+    return;
+  }
+
+  let newReview = {
+    name:name,
+    text:review,
+    stars:ratingValue
+  };
+
+  let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+  reviews.push(newReview);
+
+  localStorage.setItem("reviews", JSON.stringify(reviews));
+
+  alert("Review submitted!");
+
+  window.location.href = "index.html"; // go to home page
+}
+
+</script>
+
+</body>
 </html>
