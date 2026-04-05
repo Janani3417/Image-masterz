@@ -23,7 +23,7 @@ body{
   color:white;
 }
 
-/* ⭐ EXACT HOME PAGE HEADER */
+/* HEADER */
 header{
   width:100%;
   background:#0b132b;
@@ -34,192 +34,78 @@ header{
   top:0;
   z-index:200;
 }
-header img{
-  width:45px;
-  margin-right:10px;
-}
+header img{width:45px;margin-right:10px;}
 header .brand{
-  font-size:28px;
-  font-weight:bold;
-  color:white;
+  font-size:28px;font-weight:bold;color:white;
 }
-header .brand span{
-  color:#fbbf24;
-}
+header .brand span{color:#fbbf24;}
 nav{
-  margin-left:auto;
-  display:flex;
-  gap:40px;
+  margin-left:auto;display:flex;gap:40px;
 }
 nav a{
-  text-decoration:none;
-  color:white;
-  font-size:18px;
-  padding-bottom:5px;
-  position:relative;
+  text-decoration:none;color:white;font-size:18px;
 }
-nav a:hover{
-  color:#fbbf24;
-}
-nav a.active{
-  color:#fbbf24;
-}
-nav a.active::after{
-  content:"";
-  width:30px;
-  height:3px;
-  background:#fbbf24;
-  position:absolute;
-  bottom:-5px;
-  left:0;
-  border-radius:5px;
-}
+nav a.active, nav a:hover{color:#fbbf24;}
 
 /* MAIN */
-.main{
-  margin-top:140px;
-  padding:20px;
-}
-
-/* HERO */
-.contact-hero{text-align:center;margin-bottom:40px;}
-.contact-hero h1{font-size:36px;}
+.main{margin-top:140px;padding:20px;}
 
 /* GRID */
-.contact-container{
+.contact-row{
   display:flex;
-  flex-wrap:wrap;
-  gap:30px;
   justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
 }
 
-/* LEFT BOX */
-.contact-left,
-.contact-right{
+/* BOX STYLE */
+.box{
   width:350px;
   padding:25px;
   border-radius:20px;
-  background:rgba(255,255,255,0.05);
+  background:rgba(255,255,255,0.06);
   backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,0.1);
 }
 
-/* CONTACT ITEMS */
 .contact-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin:10px 0;
+  display:flex;align-items:center;gap:10px;margin:10px 0;
 }
 .contact-item i{color:#fbbf24;}
-.social a{
-  font-size:20px;margin-right:10px;color:white;
-}
+.social a{font-size:20px;margin-right:10px;color:white;}
 .social a:hover{color:#fbbf24;}
 
 /* FORM */
-.contact-right input,
-.contact-right textarea{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:8px;
-  outline:none;
-  border:none;
+.box input, .box textarea{
+  width:100%;padding:10px;margin-top:10px;
+  border-radius:10px;background:rgba(255,255,255,0.08);
+  border:none;color:white;outline:none;
 }
-.contact-right button{
-  width:100%;
-  padding:12px;
-  margin-top:15px;
-  border:none;
-  border-radius:20px;
-  background:linear-gradient(45deg,#00c6ff,#0072ff);
-  color:white;
-  cursor:pointer;
+.box button{
+  width:100%;padding:12px;margin-top:15px;
+  border:none;border-radius:20px;
+  background:#25d366;color:white;cursor:pointer;
 }
-.contact-right button:hover{
-  transform:scale(1.05);
-}
+.box button:hover{transform:scale(1.05);}
 
-/* ⭐ NEW REVIEW FORM */
-.review-form{
-  margin:40px auto;
-  max-width:400px;
-  padding:25px;
-  border-radius:20px;
-  background:rgba(255,255,255,0.07);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.1);
-}
-.review-form h2{text-align:center;margin-bottom:10px;}
-
-.input-box{
-  position:relative;
-  margin:20px 0;
-}
-.input-box input,
-.input-box textarea{
-  width:100%;
-  padding:10px;
-  background:rgba(255,255,255,0.08);
-  border:none;
-  border-radius:10px;
-  outline:none;
-  color:white;
-}
-.input-box label{
-  position:absolute;
-  top:-12px;
-  left:10px;
-  font-size:14px;
-  color:#fbbf24;
-}
-
-/* ⭐ STAR RATING */
+/* RATING */
 .rating i{
-  font-size:25px;
-  color:#777;
-  cursor:pointer;
+  font-size:25px;color:#777;cursor:pointer;
 }
-.rating i.active{
-  color:#ffd700;
-}
-
-.review-form button{
-  width:100%;
-  padding:12px;
-  background:#25d366;
-  color:white;
-  border:none;
-  border-radius:20px;
-  margin-top:10px;
-  cursor:pointer;
-}
-.review-form button:hover{
-  transform:scale(1.05);
-}
+.rating i.active{color:#ffd700;}
 
 /* MAP */
 .map iframe{
-  width:100%;
-  height:300px;
-  border:none;
-  border-radius:15px;
+  width:100%;height:300px;border:none;border-radius:15px;
 }
 
-/* FOOTER */
 .footer{text-align:center;margin-top:40px;opacity:0.7;}
-
-@media(max-width:768px){
-  .contact-left,.contact-right{width:90%;}
-}
 
 </style>
 </head>
 
 <body>
 
-<!-- ⭐ HEADER -->
 <header>
   <img src="assets/logo.png" alt="logo"/>
   <div class="brand">Image <span>Masterz</span></div>
@@ -235,16 +121,14 @@ nav a.active::after{
 
 <div class="main">
 
-<!-- HERO -->
-<div class="contact-hero">
+<div class="contact-hero" style="text-align:center;margin-bottom:30px;">
   <h1>Let’s Work Together 📸</h1>
-  <p>Book your events or reach us anytime</p>
 </div>
 
-<!-- CONTACT -->
-<div class="contact-container">
+<div class="contact-row">
 
-<div class="contact-left">
+<!-- BOX 1 -->
+<div class="box">
 <h2>Contact Info</h2>
 
 <div class="contact-item"><i class="fa-solid fa-phone"></i> +91 9876543210</div>
@@ -258,45 +142,44 @@ nav a.active::after{
 </div>
 </div>
 
-<div class="contact-right">
+<!-- BOX 2 – SEND MESSAGE -->
+<div class="box">
 <h2>Send Message</h2>
 
-<form onsubmit="sendContact(); return false;">
-<input id="cname" type="text" placeholder="Your Name" required>
-<input id="cemail" type="email" placeholder="Your Email" required>
-<textarea id="cmessage" placeholder="Your Message"></textarea>
-<button>Send Message</button>
+<form action="https://formsubmit.co/haribca40@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New message from Image Masterz">
+    <input type="hidden" name="_autoresponse" value="Thanks for contacting us!">
+    
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" required placeholder="Message"></textarea>
+
+    <button type="submit">Send</button>
 </form>
-
-</div>
 </div>
 
+<!-- BOX 3 -->
+<div class="box">
+<h2>Write Review ⭐</h2>
 
-<form class="review-form" onsubmit="saveReview(); return false;">
-<h2>Write a Review ⭐</h2>
-
-<div class="input-box">
-<input type="text" id="rname" required>
-<label>Your Name</label>
-</div>
+<input type="text" id="rname" placeholder="Your Name">
 
 <div class="rating" id="rating">
-<i onclick="rate(1)" class="fa-solid fa-star"></i>
-<i onclick="rate(2)" class="fa-solid fa-star"></i>
-<i onclick="rate(3)" class="fa-solid fa-star"></i>
-<i onclick="rate(4)" class="fa-solid fa-star"></i>
-<i onclick="rate(5)" class="fa-solid fa-star"></i>
+  <i onclick="rate(1)" class="fa-solid fa-star"></i>
+  <i onclick="rate(2)" class="fa-solid fa-star"></i>
+  <i onclick="rate(3)" class="fa-solid fa-star"></i>
+  <i onclick="rate(4)" class="fa-solid fa-star"></i>
+  <i onclick="rate(5)" class="fa-solid fa-star"></i>
 </div>
 
-<div class="input-box">
-<textarea id="rtext" required></textarea>
-<label>Your Review</label>
+<textarea id="rtext" placeholder="Your Review"></textarea>
+
+<button onclick="saveReview()">Submit Review</button>
 </div>
 
-<button>Submit Review</button>
-</form>
+</div>
 
-<!-- MAP -->
 <div class="map">
 <iframe src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </div>
@@ -305,49 +188,29 @@ nav a.active::after{
 
 </div>
 
-<!-- ⭐ FLOAT BUTTONS -->
-<a href="tel:9876543210" class="call-btn"><i class="fa-solid fa-phone"></i></a>
-<a href="https://wa.me/919876543210" class="whatsapp-btn"><i class="fa-brands fa-whatsapp"></i></a>
-
 <script>
 
-function sendContact(){ alert("Message sent successfully!"); }
-
-/* ⭐ STAR RATING SCRIPT */
+/* ⭐ STAR RATING */
 let ratingValue = 0;
-
-function rate(stars){
-  ratingValue = stars;
-  let starList = document.querySelectorAll("#rating i");
-  starList.forEach((star, index)=>{
-    star.classList.toggle("active", index < stars);
-  });
+function rate(v){
+  ratingValue = v;
+  let stars=document.querySelectorAll("#rating i");
+  stars.forEach((s,i)=> s.classList.toggle("active", i < v));
 }
 
-/* ⭐ SAVE REVIEW TO LOCAL STORAGE */
+/* ⭐ REVIEW SAVE */
 function saveReview(){
-  let name = document.getElementById("rname").value;
-  let review = document.getElementById("rtext").value;
+  let name=document.getElementById("rname").value;
+  let text=document.getElementById("rtext").value;
 
-  if(ratingValue === 0){
-    alert("Please select a star rating!");
-    return;
-  }
+  if(ratingValue===0){alert("Select star rating!");return;}
 
-  let newReview = {
-    name:name,
-    text:review,
-    stars:ratingValue
-  };
+  let reviews=JSON.parse(localStorage.getItem("reviews")||"[]");
+  reviews.push({name:name,text:text,stars:ratingValue});
+  localStorage.setItem("reviews",JSON.stringify(reviews));
 
-  let reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
-  reviews.push(newReview);
-
-  localStorage.setItem("reviews", JSON.stringify(reviews));
-
-  alert("Review submitted!");
-
-  window.location.href = "index.html"; // go to home page
+  alert("Review Submitted!");
+  window.location.href="index.html";
 }
 
 </script>
